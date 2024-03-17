@@ -1,0 +1,35 @@
+name: Build & Publish NPM Packages
+
+on:
+  push:
+    branches:
+      - dev
+
+env:
+  NODE_VERSION: '21'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Pre-Build
+        working-directory: service-worker
+        run: |
+          corepack enable
+          pnpm i
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.MY_TOKEN }}
+
+      - name: Build & Publish
+        working-directory: service-worker
+        run: pnpm release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.MY_TOKEN }}

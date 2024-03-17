@@ -1,0 +1,37 @@
+{
+  "name": "@longht021189/service-worker",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Gondra",
+  "keywords": [
+    "service-worker",
+    "web-worker",
+    "web"
+  ],
+  "homepage": "https://github.com/longht021189",
+  "scripts": {
+    "build": "tsup",
+    "release": "node scripts/publish.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/longht021189/npm-collection.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./web": {
+      "types": "./dist/register.d.ts",
+      "import": "./dist/register.js"
+    }
+  },
+  "devDependencies": {
+    "@tsconfig/node21": "^21.0.1",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {}
+}

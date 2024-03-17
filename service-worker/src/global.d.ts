@@ -1,0 +1,3 @@
+interface WorkerNavigator {
+  serviceWorker: ServiceWorkerContainer
+}

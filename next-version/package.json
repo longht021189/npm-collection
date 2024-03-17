@@ -1,0 +1,9 @@
+{
+  "name": "next-version",
+  "version": "0.0.0",
+  "description": "Get next version",
+  "private": true,
+  "keywords": ["version", "semantic"],
+  "author": "Gondra",
+  "license": "GPL-3.0"
+}

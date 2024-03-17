@@ -3,7 +3,14 @@
   "version": "0.0.0",
   "description": "Get next version",
   "private": true,
-  "keywords": ["version", "semantic"],
+  "keywords": [
+    "version",
+    "semantic"
+  ],
   "author": "Gondra",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  }
 }

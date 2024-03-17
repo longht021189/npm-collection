@@ -3,7 +3,7 @@ name: Build & Publish NPM Packages
 on:
   push:
     branches:
-      - dev
+      - next-version
 
 env:
   NODE_VERSION: '21'
@@ -12,24 +12,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Hello world action step
+        id: hello
+        uses: longht021189/npm-collection/next-version@next-version
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          who-to-greet: 'Mona the Octocat'
 
-      - name: Pre-Build
-        working-directory: service-worker
-        run: |
-          corepack enable
-          pnpm i
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.MY_TOKEN }}
-
-      - name: Build & Publish
-        working-directory: service-worker
-        run: pnpm release
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.MY_TOKEN }}
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"

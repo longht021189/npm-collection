@@ -9,12 +9,15 @@ env:
   NODE_VERSION: '21'
 
 jobs:
-  build:
+  hello_world_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Hello world action step
         id: hello
-        uses: longht021189/npm-collection/next-version@cfcad5065dcea00c95895856dcaff6c34a9b55ee
+        uses: ./next-version/
         with:
           who-to-greet: 'Mona the Octocat'
 

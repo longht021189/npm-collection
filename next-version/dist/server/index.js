@@ -22871,15 +22871,23 @@ __webpack_require__.r(__webpack_exports__);
 
 try {
     // `who-to-greet` input defined in action metadata file
+    console.log('>>>>>> 1')
     const nameToGreet = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput("who-to-greet");
+    console.log('>>>>>> 2')
     console.log(`Hello ${nameToGreet}!`);
+    console.log('>>>>>> 3')
     const time = new Date().toTimeString();
+    console.log('>>>>>> 4')
     _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setOutput("time", time);
+    console.log('>>>>>> 5')
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify((_actions_github__WEBPACK_IMPORTED_MODULE_1___default().context.payload), undefined, 2);
+    console.log('>>>>>> 6')
     console.log(`The event payload: ${payload}`);
 } catch (error) {
+    console.log('>>>>>> 7')
     _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed(error);
+    console.log('>>>>>> 8')
 }
 }),
 "9264": (function (module) {

@@ -9,8 +9,15 @@
   ],
   "author": "Gondra",
   "license": "GPL-3.0",
+  "scripts": {
+    "build": "rsbuild build"
+  },
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^0.4.15",
+    "typescript": "^5.4.2"
   }
 }

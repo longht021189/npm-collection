@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: longht021189/npm-collection/next-version@7ae9a8bac3c06e10bf7295efd8f4214ec137e299
+        uses: longht021189/npm-collection/next-version@cfcad5065dcea00c95895856dcaff6c34a9b55ee
         with:
           who-to-greet: 'Mona the Octocat'
 

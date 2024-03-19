@@ -22860,34 +22860,20 @@ function wrappy(fn, cb) {
     }
 }
 }),
-"9553": (function (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @actions/core */"8441");
-/* harmony import */var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */var _actions_github__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @actions/github */"14");
-/* harmony import */var _actions_github__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_github__WEBPACK_IMPORTED_MODULE_1__);
-
-
+"6753": (function (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+const core = __webpack_require__(/*! @actions/core */"8441");
+const github = __webpack_require__(/*! @actions/github */"14");
 try {
     // `who-to-greet` input defined in action metadata file
-    console.log('>>>>>> 1')
-    const nameToGreet = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput("who-to-greet");
-    console.log('>>>>>> 2')
+    const nameToGreet = core.getInput("who-to-greet");
     console.log(`Hello ${nameToGreet}!`);
-    console.log('>>>>>> 3')
     const time = new Date().toTimeString();
-    console.log('>>>>>> 4')
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setOutput("time", time);
-    console.log('>>>>>> 5')
+    core.setOutput("time", time);
     // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify((_actions_github__WEBPACK_IMPORTED_MODULE_1___default().context.payload), undefined, 2);
-    console.log('>>>>>> 6')
+    const payload = JSON.stringify(github.context.payload, undefined, 2);
     console.log(`The event payload: ${payload}`);
 } catch (error) {
-    console.log('>>>>>> 7')
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed(error);
-    console.log('>>>>>> 8')
+    core.setFailed(error);
 }
 }),
 "9264": (function (module) {
@@ -24768,6 +24754,6 @@ __webpack_require__.r = function(exports) {
 };
 
 }();
-var __webpack_exports__ = __webpack_require__("9553");module.exports = __webpack_exports__;
+var __webpack_exports__ = __webpack_require__("6753");module.exports = __webpack_exports__;
 
 })()

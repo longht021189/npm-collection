@@ -2,6 +2,7 @@
   "name": "next-version",
   "version": "0.0.0",
   "description": "Get next version",
+  "type": "module",
   "private": true,
   "keywords": [
     "version",

@@ -4,11 +4,13 @@ export default defineConfig({
   plugins: [],
   source: {
     entry: {
-      value: './src/index.cjs'
+      index: './src/index.cjs'
     }
   },
   output: {
+    distPath: {
+      server: ''
+    },
     targets: ['node'],
-    minify: false,
   }
 });

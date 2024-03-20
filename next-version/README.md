@@ -1,18 +1,30 @@
-# Hello world javascript action
+# Next-Version
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action get next version for release.
 
 ## Inputs
 
-### `who-to-greet`
+### `type`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** minor, major, ...
+
+### `pattern`
+
+**Required** RegExp
+
+### `group-index`
+
+**Required** Group index in pattern
+
+### `from`
+
+**Required** tags, packages
 
 ## Outputs
 
-### `time`
+### `version`
 
-The time we greeted you.
+This is next version
 
 ## Example usage
 

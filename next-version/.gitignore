@@ -5,7 +5,7 @@
 
 # Dist
 node_modules
-dist/**/*.LICENSE.txt
+dist
 
 # IDE
 .vscode/*

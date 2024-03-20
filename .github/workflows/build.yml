@@ -9,18 +9,15 @@ env:
   NODE_VERSION: '21'
 
 jobs:
-  hello_world_job:
+  sample:
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Hello world action step
-        id: hello
-        uses: ./actions/next-version/
+      - uses: actions/checkout@v4
+      - uses: ./actions/next-version/
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
         with:
-          who-to-greet: 'Mona the Octocat'
-
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          type: 'tags'
+          pattern: 'dpi_v(.*)'
+          group-index: 1
+          from: ''

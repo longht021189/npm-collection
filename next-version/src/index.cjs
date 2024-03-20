@@ -1,5 +1,6 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
+const api = require('./api.cjs')
 
 // const pattern = '.*(a).(b).(c)'
 // const regExp = new RegExp(pattern)
@@ -7,10 +8,6 @@ const github = require('@actions/github')
 // console.log(result, regExp.test('3141234eqwdeasa,b,c'))
 
 const FIRST_VERSION = '0.0.1'
-
-const getTags = () => {
-  return []
-}
 
 const getPackages = () => {
   return []
@@ -46,25 +43,39 @@ const getNextVersion = (data, pattern, groupIndex, type) => {
 // const payload = JSON.stringify(github.context.payload, undefined, 2)
 // console.log(`The event payload: ${payload}`);
 
-try {
-  const type = core.getInput('type')
-  const pattern = core.getInput('pattern')
-  const groupIndex = core.getInput('group-index')
-  const from = core.getInput('from')
-
-  switch (from) {
-    case 'tags':
-      getNextVersion(getTags(), pattern, groupIndex, type)
-      break
-
-    case 'packages':
-      getNextVersion(getPackages(), pattern, groupIndex, type)
-      break
-
-    default:
-      core.setFailed('"from" value is not supported')
-      break
+const run = async () => {
+  try {
+    const type = core.getInput('type')
+    const pattern = core.getInput('pattern')
+    const groupIndex = core.getInput('group-index')
+    const from = core.getInput('from')
+  
+    switch (from) {
+      case 'tags':
+        const tags = api.getTags('rust-windowing', 'winit', pattern, process.env.GITHUB_TOKEN)
+        getNextVersion(tags, pattern, groupIndex, type)
+        break
+  
+      case 'packages':
+        getNextVersion(getPackages(), pattern, groupIndex, type)
+        break
+  
+      default:
+        core.setFailed('"from" value is not supported')
+        break
+    }
+  } catch (error) {
+    core.setFailed(error);
   }
-} catch (error) {
-  core.setFailed(error);
+}
+
+const cleanup = async () => {
+}
+
+const isActionPost = core.getState('isPost') === true
+
+if (isActionPost) {
+  cleanup()
+} else {
+  run()
 }

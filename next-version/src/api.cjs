@@ -15,7 +15,7 @@ export const getTags = async (owner, repo, pattern, token) => {
   )
 
   const data = await response.json()
-  console.log(`data: ${data}`);
+  console.log(`data: ${JSON.stringify(data)}`);
   
   return []
 }

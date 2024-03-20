@@ -1,13 +1,22 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Next Version'
+description: 'Get next version for your app'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  from:
+    description: 'Where do you get latest version. (tags/packages)'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+    default: 'tags'
+  pattern:
+    description: 'Version name pattern'
+    required: true
+    default: '(.*)'
+  group-index:
+    description: 'Group index in pattern'
+    required: true
+    default: 1
+  type:
+    description: 'Update type'
+    required: true
+    default: 'minor'
 runs:
   using: 'node20'
   main: 'index.js'

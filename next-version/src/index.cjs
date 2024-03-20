@@ -52,7 +52,7 @@ const run = async () => {
   
     switch (from) {
       case 'tags':
-        const tags = api.getTags('rust-windowing', 'winit', pattern, process.env.GITHUB_TOKEN)
+        const tags = await api.getTags('rust-windowing', 'winit', pattern, process.env.GITHUB_TOKEN)
         getNextVersion(tags, pattern, groupIndex, type)
         break
   

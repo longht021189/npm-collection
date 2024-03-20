@@ -17,7 +17,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
         with:
-          type: 'tags'
+          type: ''
           pattern: 'dpi_v(.*)'
           group-index: 1
-          from: ''
+          from: 'tags'
